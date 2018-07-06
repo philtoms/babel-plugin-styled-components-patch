@@ -1,0 +1,22 @@
+{
+  "name": "babel-plugin-styled-components-patch",
+  "version": "1.0.0",
+  "description": "Plugin to raise styled components specificity to work with patched styles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4INGS/babel-plugin-styled-components-patch.git"
+  },
+  "author": "Phil Toms",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/4INGS/babel-plugin-styled-components-patch/issues"
+  },
+  "homepage": "https://github.com/4INGS/babel-plugin-styled-components-patch#readme",
+  "devDependencies": {
+    "jest": "^23.3.0"
+  }
+}
