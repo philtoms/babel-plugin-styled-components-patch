@@ -2,9 +2,14 @@ module.exports = function () {
   return {
     visitor: {
       TaggedTemplateExpression(path) {
+        if (path.node.tag.object &&
+          path.node.tag.object.loc.identifierName) {
+            console.log(path.node.tag.object.loc.identifierName)
+          }
         if (
           path.node.tag.object &&
-          path.node.tag.object.loc.identifierName === 'styled'
+          (path.node.tag.object.loc.identifierName === 'styled' ||
+          path.node.tag.object.loc.identifierName === 'css')
         ) {
           const { node: { quasi: { quasis } } } = path;
           const head = quasis[0];
