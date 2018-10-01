@@ -1,17 +1,18 @@
-module.exports = function () {
+module.exports = function() {
   return {
     visitor: {
       TaggedTemplateExpression(path) {
-        if (path.node.tag.object &&
-          path.node.tag.object.loc.identifierName) {
-            console.log(path.node.tag.object.loc.identifierName)
-          }
         if (
           path.node.tag.object &&
-          (path.node.tag.object.loc.identifierName === 'styled' ||
-          path.node.tag.object.loc.identifierName === 'css')
+          (path.node.tag.object.name === 'styled' ||
+            path.node.tag.property.name === 'extend' ||
+            path.node.tag.object.name === 'media')
         ) {
-          const { node: { quasi: { quasis } } } = path;
+          const {
+            node: {
+              quasi: { quasis },
+            },
+          } = path;
           const head = quasis[0];
           if (head && head.value.raw.indexOf('&&') === -1) {
             head.value.raw = `&& {${head.value.raw}`;
